@@ -91,6 +91,7 @@ def signup():
                 'email': email,
                 'password': password
             }
+            
             users.append(user)
             return jsonify({
                 'success': f"{username}'s account created succesfully"
