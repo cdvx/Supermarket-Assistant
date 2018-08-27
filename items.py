@@ -29,7 +29,6 @@ class Items:
             'quantity': self.quantity,
             'quantity_sold': self.quantity_sold
         }
-
     def sell_item(self, item):
         if item:
             items_list.append(item)
