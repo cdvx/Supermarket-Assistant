@@ -10,6 +10,15 @@ class User:
         self.password = password
         self.login_timestamp = login_timestamp
 
+    def __repr__(self):
+        return {
+            'user_id': self.user_id,
+            'user_role': self.user_role,
+            'username': self.username,
+            'password': self.password,
+            'login_timestamp': self.login_timestamp
+        }
+
     def view_daily_sales(self, item_id):
         """View daily sales per item. Must be authorized"""
         # TODO
