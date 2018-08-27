@@ -11,6 +11,8 @@ def connect_to_db():
             CREATE TABLE IF NOT EXISTS users (
                     user_id SERIAL PRIMARY KEY, 
                     user_role VARCHAR(255) NOT NULL, 
+                    username VARCHAR(255) NOT NULL,
+                    password VARCHAR(255) NOT NULL,
                     login_timestamp VARCHAR(255) NOT NULL 
             )
         """)

@@ -3,9 +3,11 @@ import uuid
 
 class User:
 
-    def __init__(self, user_role, login_timestamp):
+    def __init__(self, user_role, username, password, login_timestamp):
         self.user_id = uuid.uuid4().int
-        self.user_type = user_role
+        self.user_role = user_role
+        self.username = username
+        self.password = password
         self.login_timestamp = login_timestamp
 
     def view_daily_sales(self, item_id):
