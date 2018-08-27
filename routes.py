@@ -5,19 +5,11 @@ from flask import (Flask, Response, flash, json, jsonify, redirect, request,
 from flask_jwt_extended import (JWTManager, create_access_token,
                                 get_jwt_identity, jwt_required)
 
+
 app = Flask(__name__)
 app.config['JWT_SECRET_KEY'] = 'wiiu392#$%#&&B^^R@!FVDU@!*125e5'
 jwt = JWTManager(app)
 
-users = [
-    {
-        'role': 'owner'
-        'username': 'Kangol',
-        'email': 'Kangol@grizzly.com',
-        'password': 'Kogoliz'
-        user
-    }
-]
 
 
 @app.route('api/v1/auth/login', methods=['POST'])
@@ -62,7 +54,6 @@ def signup():
 
     username = request.args.get('username', None)
     user_role = request.args.get('role', None)
-    email = request.args.get('email', None)
     password = request.args.get('password', None)
     repeat_password = request.args.get('repeat_password', None)
 
@@ -72,8 +63,6 @@ def signup():
         }), 400
     elif not user_role:
         return jsonify({'message': 'Required parameter: user_role missing!'}), 400
-    elif not email:
-        return jsonify({'message': 'Required parameter: email missing!'}), 400
     elif not password:
         return jsonify({'message': 'Required parameter: email missing!'}), 400
     else:
@@ -89,9 +78,9 @@ def signup():
                 'username': username,
                 'role': user_role
                 'email': email,
-                'password': password
+                'password': password,
             }
-            
+            user = User(user_role, username, password)
             users.append(user)
             return jsonify({
                 'success': f"{username}'s account created succesfully"
