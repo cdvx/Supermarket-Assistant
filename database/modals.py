@@ -5,10 +5,12 @@ from datetime import datetime
 class User:
 
     def __init__(self, user_role, username, password):
+
         self.user_id = uuid.uuid4().int
         self.user_role = user_role
         self.username = username
         self.password = password
+
         self.login_timestamp = datetime.utcnow()
 
     def __repr__(self):
